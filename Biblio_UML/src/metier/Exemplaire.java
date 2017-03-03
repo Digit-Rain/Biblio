@@ -6,9 +6,9 @@ import java.util.GregorianCalendar;
 public class Exemplaire 
 {
 	private int idExemplaire = 0 ;
-	private GregorianCalendar dateAchat = new GregorianCalendar();
+	private GregorianCalendar dateAchat = new GregorianCalendar(2017,0,1);
 	private EnumStatusExemplaire status = EnumStatusExemplaire.DISPONIBLE;
-	private String isbn = "Non renseigné";
+	private String isbn = "Non renseignÃ©";
 		
 	
 	public Exemplaire() {}

@@ -1,57 +1,68 @@
 package dao;
 
+import java.awt.TrayIcon.MessageType;
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
-import java.util.Scanner;
 
-import metier.EnumStatusExemplaire;
+import javax.swing.JOptionPane;
+
+import metier.BiblioException;
+import metier.EmpruntEnCours;
 import metier.Exemplaire;
+import metier.Exemplaire.EnumStatusExemplaire;
 
+public class ExemplairesDAO {
+	
+	private static ArrayList<Exemplaire> exemplaireDB = new ArrayList<Exemplaire>();
+	
 
-public class ExemplairesDAO 
-{
 	
-	
-	private static Exemplaire [] exemplaireDB =
-		{
-				new Exemplaire(1, new GregorianCalendar(1,2,3), EnumStatusExemplaire.DISPONIBLE, "12345"),
-				new Exemplaire(2, new GregorianCalendar(3,4,5), EnumStatusExemplaire.DISPONIBLE, "23456"),
-				new Exemplaire(3, new GregorianCalendar(5,6,7), EnumStatusExemplaire.DISPONIBLE, "34567"),
-				new Exemplaire(4, new GregorianCalendar(8,9,10), EnumStatusExemplaire.DISPONIBLE, "45678"),
-		};
-	
-	
-	/* Recherche d'un utilisateur par sa clef */
-	public static Exemplaire findByKey (int idExemplaire)
-	{
-		Exemplaire user = new Exemplaire();
-		
-		for (Exemplaire temp : exemplaireDB)
-		{ if ( temp.getIdExemplaire() == idExemplaire ) user = temp ;}
-		
-		return user;
+	public ExemplairesDAO() {
+		this.exemplaireDB.add(new Exemplaire(123, new GregorianCalendar(2017,1,15).getTime(), EnumStatusExemplaire.DISPONIBLE, "isbn123"));
+		this.exemplaireDB.add(new Exemplaire(456, new GregorianCalendar(2016,11,18).getTime(), EnumStatusExemplaire.DISPONIBLE, "isbn456"));
+		this.exemplaireDB.add(new Exemplaire(789, new GregorianCalendar(2016,10,3).getTime(), EnumStatusExemplaire.DISPONIBLE, "isbn789"));
+		this.exemplaireDB.add(new Exemplaire(147, new GregorianCalendar(2017,0,5).getTime(), EnumStatusExemplaire.DISPONIBLE, "isbn147"));
+		this.exemplaireDB.add(new Exemplaire(258, new GregorianCalendar(2016,10,8).getTime(), EnumStatusExemplaire.DISPONIBLE, "isbn258"));
+		this.exemplaireDB.add(new Exemplaire(369, new GregorianCalendar(2016,2,9).getTime(), EnumStatusExemplaire.DISPONIBLE, "isbn369"));
+
 	}
 	
 	
-	public static void main(String[] args) 
-	{
-		Scanner scan = new Scanner(System.in);
-		System.out.print("Entrez une id de livre : ");
-		int id = scan.nextInt();
-		System.out.println();
-		
-		
-		Exemplaire trouveLeMoi = findByKey(id);
-		
-		System.out.println(
-							trouveLeMoi.getIdExemplaire() + " " +
-							//trouveLeMoi.getDateAchat() + " " +
-							trouveLeMoi.getStatus() + " " +
-							trouveLeMoi.getIsbn()
-							);
-		
-		scan.close();
-
+	public ArrayList<Exemplaire> getExemplaireDB() {
+		return exemplaireDB;
 	}
 
 	
+	/** Permet d'ajouter un exemplaire manuellement dans la DataBase virtuelle (exemplaireDB). */
+	public void addExemplaire (Exemplaire exemplaire) {
+		exemplaireDB.add(exemplaire);
+	}
+	
+	/** Affiche le contenu de la DataBase virtuelle (exemplaireDB) avec un toString
+	 * sur chaque Exemplaire trouvé. */
+	public void afficheExemplaire() {
+		for (Exemplaire ex : exemplaireDB)
+			System.out.println(ex.toString());
+	}
+	
+	/** Permet de trouver un Exemplaire dans la DataBase virtuelle (exemplaireDB) grâce à son ID. */
+	public Exemplaire findByKey(int id) {
+		Exemplaire ex = new Exemplaire(); 
+		boolean trouve = false;
+			for (Exemplaire e : exemplaireDB) {
+				if (e.getIdExemplaire() == id) {
+					ex = e;
+					trouve = true;
+				}
+			}
+			if (trouve != true) {
+					try {
+						throw new BiblioException("Exemplaire introuvable");
+					} catch (BiblioException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+			}
+			return ex;
+	}
 }

@@ -15,14 +15,25 @@ public class EmpruntArchive {
 	private GregorianCalendar dateRestitutionEff;
 	private GregorianCalendar dateEmprunt;
 	private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-	
+	private static List<EmpruntArchive> archives = new ArrayList();
 	
 	public EmpruntArchive (Utilisateur lemprunteur, Exemplaire lexemplaire, GregorianCalendar laDateRestitutionEff, GregorianCalendar laDateEmprunt) {
 		this.setEmprunteur(lemprunteur);
 		this.setExemplaire(lexemplaire);
 		this.setDateRestitutionEff(laDateRestitutionEff);
 		this.setDateEmprunt(laDateEmprunt);
+		archives.add(this);
 	}
+
+	public EmpruntArchive() {
+		// TODO Auto-generated constructor stub
+	}
+
+	
+	public static List<EmpruntArchive> getArchives() {
+		return archives;
+	}
+
 
 	public Utilisateur getEmprunteur() {
 		return emprunteur;
@@ -63,6 +74,9 @@ public class EmpruntArchive {
 				+ sdf.format(dateRestitutionEff.getTime()) + ", date d'emprunt = " + sdf.format(dateEmprunt.getTime()) + "]";
 	}
 
-	
+	public void afficheEmpruntsArchive() {
+		for (EmpruntArchive ea : archives)
+			System.out.println(ea.toString());
+	}
 	
 }

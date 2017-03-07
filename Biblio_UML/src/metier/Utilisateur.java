@@ -34,7 +34,7 @@ public class Utilisateur extends Personne
 	public void setIdUtilisateur (int idUtilisateur) {this.idUtilisateur = idUtilisateur;}
 	
 	
-	public boolean isConditionPretAcceptees() {return true;}
+	public boolean isConditionsPretAcceptees() {return true;}
 	
 	public int getNbRetards () { return 0; }
 	
@@ -48,7 +48,7 @@ public class Utilisateur extends Personne
 		int idEx = emprunt.getIdExemplaire();
 		
 		
-		if ( exDAO.findByKey(idEx).getStatus().equals(EnumStatusExemplaire.DISPONIBLE) && this.isConditionPretAcceptees() )
+		if ( exDAO.findByKey(idEx).getStatus().equals(EnumStatusExemplaire.DISPONIBLE) && this.isConditionsPretAcceptees() )
 		{
 			empruntEnCours.add(emprunt); // Ajout dans l'arrayList portée par l'utilisateur
 			exDAO.findByKey(idEx).setStatus(EnumStatusExemplaire.PRETE);

@@ -1,15 +1,15 @@
 package dao;
 
-import java.awt.TrayIcon.MessageType;
+
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
-import javax.swing.JOptionPane;
+
 
 import metier.BiblioException;
-import metier.EmpruntEnCours;
+
 import metier.Exemplaire;
-import metier.Exemplaire.EnumStatusExemplaire;
+
 
 public class ExemplairesDAO {
 	
@@ -18,13 +18,12 @@ public class ExemplairesDAO {
 
 	
 	public ExemplairesDAO() {
-		this.exemplaireDB.add(new Exemplaire(123, new GregorianCalendar(2017,1,15).getTime(), EnumStatusExemplaire.DISPONIBLE, "isbn123"));
-		this.exemplaireDB.add(new Exemplaire(456, new GregorianCalendar(2016,11,18).getTime(), EnumStatusExemplaire.DISPONIBLE, "isbn456"));
-		this.exemplaireDB.add(new Exemplaire(789, new GregorianCalendar(2016,10,3).getTime(), EnumStatusExemplaire.DISPONIBLE, "isbn789"));
-		this.exemplaireDB.add(new Exemplaire(147, new GregorianCalendar(2017,0,5).getTime(), EnumStatusExemplaire.DISPONIBLE, "isbn147"));
-		this.exemplaireDB.add(new Exemplaire(258, new GregorianCalendar(2016,10,8).getTime(), EnumStatusExemplaire.DISPONIBLE, "isbn258"));
-		this.exemplaireDB.add(new Exemplaire(369, new GregorianCalendar(2016,2,9).getTime(), EnumStatusExemplaire.DISPONIBLE, "isbn369"));
-
+		exemplaireDB.add(new Exemplaire(123, new GregorianCalendar(2017,1,15).getTime(), metier.EnumStatusExemplaire.DISPONIBLE, "isbn123"));
+		exemplaireDB.add(new Exemplaire(456, new GregorianCalendar(2016,11,18).getTime(), metier.EnumStatusExemplaire.DISPONIBLE, "isbn456"));
+		exemplaireDB.add(new Exemplaire(789, new GregorianCalendar(2016,10,3).getTime(), metier.EnumStatusExemplaire.DISPONIBLE, "isbn789"));
+		exemplaireDB.add(new Exemplaire(147, new GregorianCalendar(2017,0,5).getTime(), metier.EnumStatusExemplaire.DISPONIBLE, "isbn147"));
+		exemplaireDB.add(new Exemplaire(258, new GregorianCalendar(2016,10,8).getTime(), metier.EnumStatusExemplaire.DISPONIBLE, "isbn258"));
+		exemplaireDB.add(new Exemplaire(369, new GregorianCalendar(2016,2,9).getTime(), metier.EnumStatusExemplaire.DISPONIBLE, "isbn369"));
 	}
 	
 	

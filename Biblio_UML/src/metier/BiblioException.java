@@ -8,7 +8,7 @@ public class BiblioException extends Exception {
 	}
 	
 	public BiblioException(String message) {
-		System.err.println(message);
+		super(message);
 	}
 
 }

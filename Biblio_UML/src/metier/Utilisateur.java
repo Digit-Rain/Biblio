@@ -64,12 +64,10 @@ public class Utilisateur extends Personne
 	 * Crée un emprunt archive et l'ajoute à la liste EmpruntArchive de l'utilisateur */
 	public void removeEmpruntEnCours (EmpruntEnCours emprunt) {
 		EmpruntArchive ea = new EmpruntArchive(emprunt.getEmprunteur() , emprunt.getExemplaire(), new GregorianCalendar(), emprunt.getDateEmprunt());
-		emprunt.getEmprunteur().addEmpruntArchive(ea);
 		empruntsEnCours.remove(emprunt);
 		}
 	
 	
-	public void addEmpruntArchive (EmpruntArchive archive) {empruntsArchive.add(archive);}
 	public List<EmpruntEnCours> getEmpruntEnCours() {return empruntsEnCours;}
 	public int getNbEmpruntsEnCours() {return empruntsEnCours.size();}
 

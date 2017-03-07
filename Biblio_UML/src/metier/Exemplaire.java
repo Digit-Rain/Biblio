@@ -11,12 +11,14 @@ public class Exemplaire {
 	private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 	private EnumStatusExemplaire status;
 	private String isbn = "isbn inconnu";
+//	ExemplaireDao exDao = new ExemplaireDao();
 	
 	public Exemplaire(int idExemplaire, Date dateAchat, EnumStatusExemplaire status, String isbn) {
 		this.setIdExemplaire(idExemplaire);
 		this.setDateAchat(dateAchat);
 		this.setStatus(status);
 		this.setIsbn(isbn);
+	//	exDao.addExemplaire(this); // Chaque Exemplaire crée est ajouté à la DataBase virtuelle ExemplaireDB.
 	}
 	
 	public Exemplaire() {}
@@ -72,13 +74,26 @@ public class Exemplaire {
 
 	@Override
 	public String toString() {
-		return "Exemplaire [NÂ° Id Exemplaire = " + idExemplaire + ", Date d'achat = " + sdf.format(dateAchat) + ", Status = " + status
-				+ ", NÂ° ISBN = " + isbn +"]";
+		return "Exemplaire [N° Id Exemplaire = " + idExemplaire + ", Date d'achat = " + sdf.format(dateAchat) + ", Status = " + status
+				+ ", N° ISBN = " + isbn +"]";
 	}
 	
 	
 	public static void main(String[]args) {
+		ExemplairesDAO exd = new ExemplairesDAO();
 		
+		System.out.println("Test ce qu'il y a dans la Dao avant création d'un exemplaire :");
+		for (Exemplaire ex : exd.getExemplaireDB()) {
+			System.out.println(ex.toString());
+		}
+		
+		System.out.println("\nCréation Exemplaire id n° 01");
+		Exemplaire essais = new Exemplaire(01, new GregorianCalendar(2016,10,9).getTime(), EnumStatusExemplaire.DISPONIBLE, "isbn46");
+		
+		System.out.println("\nTest ce qu'il y a dans ExemplaireDB après création d'un exemplaire :");
+		for (Exemplaire ex : exd.getExemplaireDB()) {
+			System.out.println(ex.toString());
+		}
 	}
 
 }

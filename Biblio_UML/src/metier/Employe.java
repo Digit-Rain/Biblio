@@ -1,6 +1,5 @@
 package metier;
 
-//import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class Employe extends Utilisateur
@@ -25,5 +24,13 @@ public class Employe extends Utilisateur
 					String codeMatricule, EnumCategorieEmploye categorieEmploye) 
 	{ super(nom, prenom, dateNaissance, sexe, pwd, pseudonyme, idUtilisateur); 
 	setCodeMatricule(codeMatricule) ; setCategorieEmploye(categorieEmploye);}
+	
+	
+	@Override public String toString() 
+	{
+		return super.toString() + " Matricule=[" + codeMatricule 
+								+ "] Catégorie Employé=[" + getCategorieEmploye() + "]" ; 
+	}
+	
 	
 }

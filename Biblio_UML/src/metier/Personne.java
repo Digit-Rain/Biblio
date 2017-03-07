@@ -1,6 +1,7 @@
 package metier;
 
 
+import java.text.SimpleDateFormat;
 //import java.util.Date;
 import java.util.GregorianCalendar;
 
@@ -32,9 +33,12 @@ public class Personne
 	public void setDateNaissance(GregorianCalendar dateNaissance) {this.dateNaissance = dateNaissance;}
 	
 	
-	/*public static void main(String[] args) 
+	@Override public String toString() 
 	{
-
-	}*/
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		
+		return "nom =[" + nom + "] prénom =[" + prenom + "] Date de naissance=["
+			   + sdf.format(dateNaissance.getTime()) + "] sexe=[" + sexe + "]";
+	}
 	
 }

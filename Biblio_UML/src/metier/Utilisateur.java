@@ -1,9 +1,10 @@
 package metier;
 
 import java.util.ArrayList;
-//import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
+
+import dao.ExemplairesDAO;
 
 
 public class Utilisateur extends Personne
@@ -37,9 +38,29 @@ public class Utilisateur extends Personne
 	
 	public int getNbRetards () { return 0; }
 	
-	
-	public void addEmpruntEnCours (EmpruntEnCours emprunt) {empruntEnCours.add(emprunt);}
 	public List<EmpruntEnCours> getEmpruntEnCours() {return empruntEnCours;}
 	public int getNbEmpruntsEnCours() {return empruntEnCours.size();}
 
+	
+	public void addEmpruntEnCours (EmpruntEnCours emprunt) 
+	{
+		ExemplairesDAO exDAO = new ExemplairesDAO () ;
+		int idEx = emprunt.getIdExemplaire();
+		
+		
+		if ( exDAO.findByKey(idEx).getStatus().equals(EnumStatusExemplaire.DISPONIBLE) && this.isConditionPretAcceptees() )
+		{
+			empruntEnCours.add(emprunt); // Ajout dans l'arrayList portée par l'utilisateur
+			exDAO.findByKey(idEx).setStatus(EnumStatusExemplaire.PRETE);
+		}
+			
+		else System.out.println("Désolé ce livre est déjà emprunté. Emprunt Impossible");
+	}
+	
+	
+	@Override public String toString() 
+	{
+		return super.toString() + " ID Utilisateur=[" + idUtilisateur + "] Pseudonyme=[" + pseudonyme + "]";
+	}
+	
 }

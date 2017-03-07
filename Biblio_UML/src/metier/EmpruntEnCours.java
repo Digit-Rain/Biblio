@@ -19,13 +19,10 @@ public class EmpruntEnCours
 	public void setIdUtilisateur(int idUtilisateur) {this.idUtilisateur = idUtilisateur;}
 	public void setDateEmprunt(GregorianCalendar dateEmprunt) {this.dateEmprunt = dateEmprunt;}
 
-	public EmpruntEnCours () { this(new GregorianCalendar()); }
-	public EmpruntEnCours (GregorianCalendar gregorianCalendar) { setDateEmprunt(gregorianCalendar); }
-
 	
-	public static void main(String[] args) 
-	{
+	public EmpruntEnCours () { this( new GregorianCalendar(), new Utilisateur(), new Exemplaire() ); }
 	
-	}
+	public EmpruntEnCours (GregorianCalendar gregorianCalendar, Utilisateur utilisateur, Exemplaire exemplaire ) 
+	{ setDateEmprunt(gregorianCalendar); setIdUtilisateur(idUtilisateur); setIdExemplaire(idExemplaire);}
 
 }

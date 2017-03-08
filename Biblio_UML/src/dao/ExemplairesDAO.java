@@ -8,8 +8,8 @@ import javax.swing.JOptionPane;
 
 import metier.BiblioException;
 import metier.EmpruntEnCours;
+import metier.EnumStatusExemplaire;
 import metier.Exemplaire;
-import metier.Exemplaire.EnumStatusExemplaire;
 
 public class ExemplairesDAO {
 	
@@ -18,12 +18,12 @@ public class ExemplairesDAO {
 
 	
 	public ExemplairesDAO() {
-		this.exemplaireDB.add(new Exemplaire(123, new GregorianCalendar(2017,1,15).getTime(), EnumStatusExemplaire.DISPONIBLE, "isbn123"));
-		this.exemplaireDB.add(new Exemplaire(456, new GregorianCalendar(2016,11,18).getTime(), EnumStatusExemplaire.DISPONIBLE, "isbn456"));
-		this.exemplaireDB.add(new Exemplaire(789, new GregorianCalendar(2016,10,3).getTime(), EnumStatusExemplaire.DISPONIBLE, "isbn789"));
-		this.exemplaireDB.add(new Exemplaire(147, new GregorianCalendar(2017,0,5).getTime(), EnumStatusExemplaire.DISPONIBLE, "isbn147"));
-		this.exemplaireDB.add(new Exemplaire(258, new GregorianCalendar(2016,10,8).getTime(), EnumStatusExemplaire.DISPONIBLE, "isbn258"));
-		this.exemplaireDB.add(new Exemplaire(369, new GregorianCalendar(2016,2,9).getTime(), EnumStatusExemplaire.DISPONIBLE, "isbn369"));
+		ExemplairesDAO.exemplaireDB.add(new Exemplaire(123, new GregorianCalendar(2017,1,15).getTime(), EnumStatusExemplaire.DISPONIBLE, "isbn123"));
+		ExemplairesDAO.exemplaireDB.add(new Exemplaire(456, new GregorianCalendar(2016,11,18).getTime(), EnumStatusExemplaire.DISPONIBLE, "isbn456"));
+		ExemplairesDAO.exemplaireDB.add(new Exemplaire(789, new GregorianCalendar(2016,10,3).getTime(), EnumStatusExemplaire.DISPONIBLE, "isbn789"));
+		ExemplairesDAO.exemplaireDB.add(new Exemplaire(147, new GregorianCalendar(2017,0,5).getTime(), EnumStatusExemplaire.DISPONIBLE, "isbn147"));
+		ExemplairesDAO.exemplaireDB.add(new Exemplaire(258, new GregorianCalendar(2016,10,8).getTime(), EnumStatusExemplaire.DISPONIBLE, "isbn258"));
+		ExemplairesDAO.exemplaireDB.add(new Exemplaire(369, new GregorianCalendar(2016,2,9).getTime(), EnumStatusExemplaire.DISPONIBLE, "isbn369"));
 
 	}
 	

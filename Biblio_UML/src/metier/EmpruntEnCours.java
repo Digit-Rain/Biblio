@@ -19,9 +19,9 @@ public class EmpruntEnCours
 	public void setDateEmprunt(GregorianCalendar dateEmprunt) {this.dateEmprunt = dateEmprunt;}
 
 	
-	public EmpruntEnCours () { this( new GregorianCalendar(), new Utilisateur(), new Exemplaire() ); }
+	public EmpruntEnCours () { this( new Utilisateur(), new Exemplaire(), new GregorianCalendar() ); }
 	
-	public EmpruntEnCours (GregorianCalendar dateEmprunt, Utilisateur utilisateur, Exemplaire exemplaire ) 
+	public EmpruntEnCours (Utilisateur utilisateur, Exemplaire exemplaire, GregorianCalendar dateEmprunt  ) 
 	{ setDateEmprunt(dateEmprunt); setUtilisateur(utilisateur); setExemplaire(exemplaire);}
 
 	

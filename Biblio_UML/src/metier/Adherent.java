@@ -44,8 +44,6 @@ public class Adherent extends Utilisateur {
 	}
 
 	
-	
-	@Override
 	public boolean isConditionsPretAcceptees() {
 		boolean okNok = true;
 		if (this.getNbEmpruntsEnCours() >= 3) {

@@ -1,8 +1,7 @@
 package dao;
-//import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.Scanner;
 
+
+import java.util.GregorianCalendar;
 import metier.Adherent;
 import metier.Employe;
 import metier.EnumCategorieEmploye;
@@ -26,7 +25,7 @@ public class UtilisateursDAO
 	
 	
 	/* Recherche d'un utilisateur par sa clef */
-	public static Utilisateur findByKey (int idUtilisateur)
+	public Utilisateur findByKey (int idUtilisateur)
 	{
 		Utilisateur user = new Utilisateur();
 		
@@ -34,33 +33,6 @@ public class UtilisateursDAO
 		{ if ( temp.getIdUtilisateur() == idUtilisateur ) user = temp ;}
 		
 		return user;
-	}
-	
-
-	@Override public String toString() 
-	{
-		return super.toString();
-	}
-	
-	
-	// Test fonction de recherche
-	public static void main(String[] args) 
-	{
-		Scanner scan = new Scanner(System.in);
-		System.out.print("Entrez une id d'utilisateur : ");
-		int id = scan.nextInt();
-		System.out.println();
-		
-		
-		Utilisateur trouveLeMoi = findByKey(id);
-		
-		System.out.println(
-							trouveLeMoi.getIdUtilisateur() + " " +
-							trouveLeMoi.getNom() + " " +
-							trouveLeMoi.getPrenom()
-							);
-		
-		scan.close();
 	}
 		
 }

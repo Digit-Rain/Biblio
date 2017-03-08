@@ -23,12 +23,13 @@ public class TestAdherentEnRetard {
 		System.out.println("\nListe d'emprunt de l'adhérent :\n"+ ad1.getEmpruntEnCours());
 		
 		System.out.println("Retrait de l'emprunt ce qui enclenche la méthode isPretEnRetard.");
+		
 		ad1.removeEmpruntEnCours(ep1);
 		
 		System.out.println("La méthode isPretEnRetard renvoie true et le nbRetard de l'adhérent augmente de 1 => "+ ad1.getNbRetards());
 		System.out.println("\nOn essaie de faire un autre emprunt pour l'adhérent :\n=> Lève une BiblioException : ");
 		EmpruntEnCours ep2 = new EmpruntEnCours(ad1, exDAO.findByKey(369), new GregorianCalendar());
-		
+		ad1.addEmpruntEnCours(ep2);
 	}
 
 }

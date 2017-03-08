@@ -21,8 +21,8 @@ public class AdherentTroisEmprunts
 		System.out.println("\nCreation premier emprunt adhérent");
 		System.out.println( utilDAO.findByKey(1) );
 		Utilisateur user = utilDAO.findByKey(1);
-		Exemplaire exemp = exDAO.findByKey(1);
-		EmpruntEnCours emprunt = new EmpruntEnCours ( new GregorianCalendar(), user, exemp );
+		Exemplaire exemp = exDAO.findByKey(123);
+		EmpruntEnCours emprunt = new EmpruntEnCours ( user, exemp, new GregorianCalendar() );
 		System.out.println( "Nombre d'emprunts en cours : " + user.getNbEmpruntsEnCours() );
 		user.addEmpruntEnCours(emprunt);
 		System.out.println( "Nombre d'emprunts en cours : " + user.getNbEmpruntsEnCours() );
@@ -30,8 +30,8 @@ public class AdherentTroisEmprunts
 		System.out.println("\nCreation deuxième emprunt adhérent");
 		System.out.println( utilDAO.findByKey(1) );
 		user = utilDAO.findByKey(1);
-		exemp = exDAO.findByKey(2);
-		emprunt = new EmpruntEnCours ( new GregorianCalendar(), user, exemp );
+		exemp = exDAO.findByKey(456);
+		emprunt = new EmpruntEnCours ( user, exemp, new GregorianCalendar());
 		System.out.println( "Nombre d'emprunts en cours : " + user.getNbEmpruntsEnCours() );
 		user.addEmpruntEnCours(emprunt);
 		System.out.println( "Nombre d'emprunts en cours : " + user.getNbEmpruntsEnCours() );
@@ -39,8 +39,8 @@ public class AdherentTroisEmprunts
 		System.out.println("\nCreation troisième emprunt adhérent");
 		System.out.println( utilDAO.findByKey(1) );
 		user = utilDAO.findByKey(1);
-		exemp = exDAO.findByKey(3);
-		emprunt = new EmpruntEnCours ( new GregorianCalendar(), user, exemp );
+		exemp = exDAO.findByKey(789);
+		emprunt = new EmpruntEnCours (  user, exemp, new GregorianCalendar());
 		System.out.println( "Nombre d'emprunts en cours : " + user.getNbEmpruntsEnCours() );
 		user.addEmpruntEnCours(emprunt);
 		System.out.println( "Nombre d'emprunts en cours : " + user.getNbEmpruntsEnCours() );
@@ -48,8 +48,8 @@ public class AdherentTroisEmprunts
 		System.out.println("\nCreation quatrième emprunt adhérent");
 		System.out.println( utilDAO.findByKey(1) );
 		user = utilDAO.findByKey(1);
-		exemp = exDAO.findByKey(4);
-		emprunt = new EmpruntEnCours ( new GregorianCalendar(), user, exemp );
+		exemp = exDAO.findByKey(147);
+		emprunt = new EmpruntEnCours (  user, exemp, new GregorianCalendar());
 		System.out.println( "Nombre d'emprunts en cours : " + user.getNbEmpruntsEnCours() );
 		user.addEmpruntEnCours(emprunt);
 		System.out.println( "Nombre d'emprunts en cours : " + user.getNbEmpruntsEnCours() );

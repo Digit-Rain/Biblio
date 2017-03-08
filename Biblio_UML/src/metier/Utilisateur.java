@@ -11,7 +11,7 @@ public class Utilisateur extends Personne
 	private int idUtilisateur = 0 ;
 	private String pwd = "";
 	private String pseudonyme = "";
-	private int nbRetards = 0 ;
+	protected int nbRetards;
 	private List <EmpruntEnCours> empruntEnCours = new ArrayList <EmpruntEnCours> ();
 	
 
@@ -58,7 +58,7 @@ public class Utilisateur extends Personne
 			try 
 			{
 				throw new BiblioException("Emprunt du livre par cet adh�rent refus�");
-			} catch (BiblioException e) { System.out.println(e); }
+			} catch (BiblioException e) { System.err.println(e); }
 		}
 		
 	}
@@ -73,13 +73,11 @@ public class Utilisateur extends Personne
 	 * Crée un emprunt archive et l'ajoute à la liste EmpruntArchive de l'utilisateur */
 	public void removeEmpruntEnCours (EmpruntEnCours emprunt) {
 		EmpruntArchive ea = new EmpruntArchive(emprunt.getEmprunteur() , emprunt.getExemplaire(), new GregorianCalendar(), emprunt.getDateEmprunt());
-		this.getEmpruntEnCours().remove(emprunt);
+		emprunt.getEmprunteur().getEmpruntEnCours().remove(emprunt);
 	//	emprunt.setDateRetour(new GregorianCalendar()); // Créer la date de retour à la date à laquelle le livre est restitué
 		if (emprunt.isPretEnRetard() == true){
 			System.out.println("Passe dans le if de remove");
-			this.setNbRetards(nbRetards++);
-			
-			//emprunt.getEmprunteur().setNbRetards(emprunt.getEmprunteur().getNbRetards() + 1);
+			emprunt.getEmprunteur().setNbRetards(emprunt.getEmprunteur().getNbRetards() + 1);
 		}
 	}
 	
@@ -87,6 +85,12 @@ public class Utilisateur extends Personne
 	public void afficheEmpruntEnCours() {
 		for (EmpruntEnCours e : empruntEnCours)
 			System.out.println(e.toString());
+	}
+	
+	public static void main(String[]args) throws BiblioException {
+		Utilisateur ad = new Adherent();
+		ad.setNbRetards(1);
+		System.out.println(ad.getNbRetards());
 	}
 	
 }

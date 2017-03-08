@@ -45,19 +45,19 @@ public class Adherent extends Utilisateur {
 	}
 
 	
-	public boolean isConditionsPretAcceptees() 
+	/*public boolean isConditionsPretAcceptees() 
 	{
 		
 		if ( getNbRetards() > 0 || getNbEmpruntsEnCours() >= nbMaxPrets ) return false ;
 		else return true;
 		
-	}
+	}*/
 	
 	
 	
 	public int getNbRetards () 
 	{ 
-		int nbRetards = 0;
+		/*int nbRetards = 0;
 		
 		for ( EmpruntEnCours temp : getEmpruntEnCours() )
 		if ( temp.isPretEnRetard() ) nbRetards++;
@@ -67,38 +67,35 @@ public class Adherent extends Utilisateur {
 			try {
 				throw new BiblioException("Désolé vous avez trop de retards pour pouvoir emprunter");
 			} catch (BiblioException e) {System.out.println(e); }	
-		}
-		return nbRetards; 
+		}*/
+		return this.nbRetards; 
 	}
 
 	
 	
-	/*@Override
+	@Override
 	public boolean isConditionsPretAcceptees() {
-		System.out.println("isConditionsPretAcceptees dav");
+
 		boolean okNok = true;
 		if (this.getNbEmpruntsEnCours() >= 3) {
 			okNok = false;
 			try {
 				throw new BiblioException("Le nombre de prêts maxi autorisés est déjà atteint !");
 			} catch (BiblioException e) {
-				// TODO Auto-generated catch block
 				System.err.println(e);
 			}
 		} 
 		
 		if (this.getNbRetards() > 0) {
-			System.out.println("salut");
 			okNok = false;
 			try {
 				throw new BiblioException("Emprunt refusé ! L'adhérent a "+ this.getNbRetards()+" retard(s).");
 			} catch (BiblioException e) {
-				// TODO Auto-generated catch block
 				System.err.println(e);
 			}
 		}
 		return okNok;
-	}*/
+	}
 	
 	@Override
 	public String toString() {

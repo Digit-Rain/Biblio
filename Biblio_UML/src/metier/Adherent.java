@@ -55,7 +55,6 @@ public class Adherent extends Utilisateur {
 			} catch (BiblioException e) {
 				// TODO Auto-generated catch block
 				System.err.println(e);
-				//System.err.println("Le nombre de prêts maxi autorisés est déjà atteint !");
 			}
 		} 
 		
@@ -76,19 +75,5 @@ public class Adherent extends Utilisateur {
 		return "Adherent [N° ID = "+ super.getIdUtilisateur() +", Nom = "+ super.getNom() +", Prénom = "+ super.getPrenom() +", Nombre d'emprunt en cours = "
 				+ super.getNbEmpruntsEnCours() +", Retard = "+ super.getNbRetards() +", N° telephone = " + telephone + "]";
 	}
-	
-	/*@Override
-	public void addEmpruntEnCours (EmpruntEnCours emprunt) {
-		System.out.println("Adhérent addEmprunt : ");
-		if (this.isConditionsPretAcceptees() == true)
-			this.addEmpruntEnCours(emprunt);
-		else
-			try {
-				throw new BiblioException("Les conditions de prêts ne sont pas remplies...");
-			} catch (BiblioException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}*/
 	
 }

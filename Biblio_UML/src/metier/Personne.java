@@ -11,7 +11,7 @@ public class Personne
 	private String nom = "Non renseigné";
 	private String prenom = "Non renseigné";
 	private GregorianCalendar dateNaissance = new GregorianCalendar(0,0,0);
-	private String sexe = "Non renseigné";
+	private String sexe = "Non renseigné"; 
 	
 	
 	

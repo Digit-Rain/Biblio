@@ -7,7 +7,7 @@ public class EmpruntEnCours
 {
 	private GregorianCalendar dateEmprunt = new GregorianCalendar(0,0,0);
 	private int idExemplaire = 0 ;
-	private int idUtilisateur = 0 ;
+	private int idUtilisateur = 0 ; 
 	
 	
 	public GregorianCalendar getDateEmprunt() {return dateEmprunt;}

@@ -11,7 +11,7 @@ public class Utilisateur extends Personne
 {
 	
 	private int idUtilisateur = 0 ;
-	private String pwd = "";
+	private String pwd = ""; 
 	private String pseudonyme = "";
 	private List <EmpruntEnCours> empruntEnCours = new ArrayList <EmpruntEnCours> ();
 	

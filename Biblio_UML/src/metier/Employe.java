@@ -5,7 +5,7 @@ import java.util.GregorianCalendar;
 public class Employe extends Utilisateur
 {
 	
-	private String codeMatricule = "Non Renseigné";
+	private String codeMatricule = "Non Renseigné"; 
 	private EnumCategorieEmploye categorieEmploye = EnumCategorieEmploye.BIBLIOTHECAIRE ;
 	
 	

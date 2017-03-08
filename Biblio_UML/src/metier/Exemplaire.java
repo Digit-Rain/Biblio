@@ -64,6 +64,13 @@ public class Exemplaire {
 
 
 
+	public enum EnumStatusExemplaire {
+		DISPONIBLE,
+		PRETE,
+		SUPPRIME
+	}
+
+
 
 	@Override
 	public String toString() {

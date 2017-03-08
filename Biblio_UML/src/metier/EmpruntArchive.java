@@ -6,7 +6,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-
+import metier.Exemplaire.EnumStatusExemplaire;
 
 public class EmpruntArchive {
 	
@@ -15,7 +15,7 @@ public class EmpruntArchive {
 	private GregorianCalendar dateRestitutionEff;
 	private GregorianCalendar dateEmprunt;
 	private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-	private static List<EmpruntArchive> archives = new ArrayList<EmpruntArchive>();
+	private static List<EmpruntArchive> archives = new ArrayList();
 	
 	public EmpruntArchive (Utilisateur lemprunteur, Exemplaire lexemplaire, GregorianCalendar laDateRestitutionEff, GregorianCalendar laDateEmprunt) {
 		this.setEmprunteur(lemprunteur);
@@ -70,7 +70,7 @@ public class EmpruntArchive {
 
 	@Override
 	public String toString() {
-		return "Emprunts archivés :\n[emprunteur = " + emprunteur.getPseudonyme() + ", exemplaire = " + exemplaire.getIdExemplaire() + ", date de restitution = "
+		return "Emprunts archivés [emprunteur = " + emprunteur.getPseudonyme() + ", exemplaire = " + exemplaire.getIdExemplaire() + ", date de restitution = "
 				+ sdf.format(dateRestitutionEff.getTime()) + ", date d'emprunt = " + sdf.format(dateEmprunt.getTime()) + "]";
 	}
 

@@ -22,7 +22,7 @@ public class EmpruntEnCours
 	
 	public EmpruntEnCours () { this( new GregorianCalendar(), new Utilisateur(), new Exemplaire() ); }
 	
-	public EmpruntEnCours (GregorianCalendar gregorianCalendar, Utilisateur utilisateur, Exemplaire exemplaire ) 
+	public EmpruntEnCours (Utilisateur utilisateur, Exemplaire exemplaire, GregorianCalendar gregorianCalendar) 
 	{ setDateEmprunt(gregorianCalendar); setIdUtilisateur(idUtilisateur); setIdExemplaire(idExemplaire);}
 
 }

@@ -11,7 +11,7 @@ public class EmpruntEnCours
 	
 	
 	public GregorianCalendar getDateEmprunt() {return dateEmprunt;}
-	public Utilisateur getUtilisateur() {return emprunteur;}
+	public Utilisateur getEmprunteur() {return emprunteur;}
 	
 	public Exemplaire getExemplaire(){return exemplaire;}
 	public void setExemplaire(Exemplaire exemplaire){this.exemplaire = exemplaire;}

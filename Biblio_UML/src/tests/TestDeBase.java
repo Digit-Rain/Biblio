@@ -8,10 +8,8 @@ import dao.ExemplairesDAO;
 import dao.UtilisateursDAO;
 import metier.Adherent;
 import metier.BiblioException;
-import metier.Employe;
 import metier.EmpruntEnCours;
 import metier.Exemplaire;
-import metier.Exemplaire.EnumStatusExemplaire;
 import metier.Utilisateur;
 
 public class TestDeBase {
@@ -43,17 +41,19 @@ public class TestDeBase {
 			/////////////////////////////////////////////////////////////
 			System.out.println("\nDemande d'un employé par son ID aux Dao :\n");
 			// On Demande un Employé (ID 03)
-			int keyEm1 = Integer.parseInt(JOptionPane.showInputDialog("Saisissez la clé d'un adhérent :")); 
+			int keyEm1 = Integer.parseInt(JOptionPane.showInputDialog("Saisissez la clé d'un employé :")); 
 			Utilisateur em1 = userDAO.findByKey(keyEm1);
 			System.out.println(em1);
 		
 			/////////////////////////////////////////////////////////////
 			System.out.println("\nCréation d'un emprunt en cours pour un adhérent :");
 			EmpruntEnCours ep1 = new EmpruntEnCours(ad1, ex1, new GregorianCalendar());
+			ad1.addEmpruntEnCours(ep1);
 			ad1.afficheEmpruntEnCours();
 			
 			System.out.println("\nCréation d'un emprunt en cours pour un employé :");
 			EmpruntEnCours ep2 = new EmpruntEnCours(em1, ex2, new GregorianCalendar());
+			em1.addEmpruntEnCours(ep2);
 			em1.afficheEmpruntEnCours();
 			
 

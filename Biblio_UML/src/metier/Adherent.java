@@ -8,15 +8,16 @@ public class Adherent extends Utilisateur {
 	private static int nbMaxPrets = 3;
 	private static int dureeMaxPrets = 15;
 	
+	public Adherent () {};
+	
 	
 	public Adherent (String nom, String prenom, GregorianCalendar dateNaissance, String sexe, 
 			String pwd, String pseudonyme, int idUtilisateur, String telephone) {
 		super(nom, prenom, dateNaissance, sexe, pwd, pseudonyme, idUtilisateur);
 		this.setTelephone(telephone);
 	}
-	public Adherent () {};
-
-
+	
+	
 	public String getTelephone() {
 		return telephone;
 	}
@@ -44,7 +45,37 @@ public class Adherent extends Utilisateur {
 	}
 
 	
+	public boolean isConditionsPretAcceptees() 
+	{
+		
+		if ( getNbRetards() > 0 || getNbEmpruntsEnCours() >= nbMaxPrets ) return false ;
+		else return true;
+		
+	}
+	
+	
+	
+	public int getNbRetards () 
+	{ 
+		int nbRetards = 0;
+		
+		for ( EmpruntEnCours temp : getEmpruntEnCours() )
+		if ( temp.isPretEnRetard() ) nbRetards++;
+		
+		if ( nbRetards >= 1 )
+		{
+			try {
+				throw new BiblioException("Désolé vous avez trop de retards pour pouvoir emprunter");
+			} catch (BiblioException e) {System.out.println(e); }	
+		}
+		return nbRetards; 
+	}
+
+	
+	
+	/*@Override
 	public boolean isConditionsPretAcceptees() {
+		System.out.println("isConditionsPretAcceptees dav");
 		boolean okNok = true;
 		if (this.getNbEmpruntsEnCours() >= 3) {
 			okNok = false;
@@ -57,6 +88,7 @@ public class Adherent extends Utilisateur {
 		} 
 		
 		if (this.getNbRetards() > 0) {
+			System.out.println("salut");
 			okNok = false;
 			try {
 				throw new BiblioException("Emprunt refusé ! L'adhérent a "+ this.getNbRetards()+" retard(s).");
@@ -66,7 +98,7 @@ public class Adherent extends Utilisateur {
 			}
 		}
 		return okNok;
-	}
+	}*/
 	
 	@Override
 	public String toString() {

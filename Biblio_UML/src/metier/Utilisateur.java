@@ -11,7 +11,11 @@ public class Utilisateur extends Personne
 	private int idUtilisateur = 0 ;
 	private String pwd = "";
 	private String pseudonyme = "";
+	private int nbRetards = 0 ;
 	private List <EmpruntEnCours> empruntEnCours = new ArrayList <EmpruntEnCours> ();
+	
+
+	public void setNbRetards(int nbRetards) {this.nbRetards = nbRetards;}
 	
 	
 	public Utilisateur () { this( "", "", new GregorianCalendar(0,0,0), "", "", "", 0 ); }
@@ -32,7 +36,7 @@ public class Utilisateur extends Personne
 	public void setIdUtilisateur (int idUtilisateur) {this.idUtilisateur = idUtilisateur;}
 	
 	
-	public boolean isConditionPretAcceptees() {return true;}
+	public boolean isConditionsPretAcceptees() {System.out.println("pouet");	return true;}
 	
 	public int getNbRetards () { return 0; }
 	
@@ -42,7 +46,7 @@ public class Utilisateur extends Personne
 	
 	public void addEmpruntEnCours (EmpruntEnCours emprunt) 
 	{
-		if ( isConditionPretAcceptees() && emprunt.getExemplaire().getStatus() == EnumStatusExemplaire.DISPONIBLE )
+		if ( (isConditionsPretAcceptees()) && emprunt.getExemplaire().getStatus() == EnumStatusExemplaire.DISPONIBLE )
 		{
 			this.empruntEnCours.add(emprunt);
 			emprunt.getExemplaire().setStatus(EnumStatusExemplaire.PRETE);
@@ -53,7 +57,7 @@ public class Utilisateur extends Personne
 			emprunt = null ;
 			try 
 			{
-				throw new BiblioException("Emprunt du livre par cet adhérent refusé");
+				throw new BiblioException("Emprunt du livre par cet adh�rent refus�");
 			} catch (BiblioException e) { System.out.println(e); }
 		}
 		
@@ -69,16 +73,19 @@ public class Utilisateur extends Personne
 	 * Crée un emprunt archive et l'ajoute à la liste EmpruntArchive de l'utilisateur */
 	public void removeEmpruntEnCours (EmpruntEnCours emprunt) {
 		EmpruntArchive ea = new EmpruntArchive(emprunt.getEmprunteur() , emprunt.getExemplaire(), new GregorianCalendar(), emprunt.getDateEmprunt());
-		empruntsEnCours.remove(emprunt);
-		emprunt.setDateRetour(new GregorianCalendar()); // Créer la date de retour à la date à laquelle le livre est restitué
+		this.getEmpruntEnCours().remove(emprunt);
+	//	emprunt.setDateRetour(new GregorianCalendar()); // Créer la date de retour à la date à laquelle le livre est restitué
 		if (emprunt.isPretEnRetard() == true){
-			emprunt.getEmprunteur().setNbRetards(emprunt.getEmprunteur().getNbRetards() + 1);
+			System.out.println("Passe dans le if de remove");
+			this.setNbRetards(nbRetards++);
+			
+			//emprunt.getEmprunteur().setNbRetards(emprunt.getEmprunteur().getNbRetards() + 1);
 		}
 	}
 	
 	/** Affiche la liste d'emprunts de l'emprunteur */
 	public void afficheEmpruntEnCours() {
-		for (EmpruntEnCours e : empruntsEnCours)
+		for (EmpruntEnCours e : empruntEnCours)
 			System.out.println(e.toString());
 	}
 	

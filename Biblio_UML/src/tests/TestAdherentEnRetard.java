@@ -19,7 +19,7 @@ public class TestAdherentEnRetard {
 		System.out.println("\n\n1.2 TEST ADHERENT EN RETARD\nSi un emprunt en retard, impossible d'emprunter pour un adhérent :");
 
 		EmpruntEnCours ep1 = new EmpruntEnCours(ad1, exDAO.findByKey(258), new GregorianCalendar(2017,1,20));
-		
+		ad1.addEmpruntEnCours(ep1);
 		System.out.println("\nListe d'emprunt de l'adhérent :\n"+ ad1.getEmpruntEnCours());
 		
 		System.out.println("Retrait de l'emprunt ce qui enclenche la méthode isPretEnRetard.");

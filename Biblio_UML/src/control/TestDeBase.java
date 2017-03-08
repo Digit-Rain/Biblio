@@ -20,8 +20,8 @@ public class TestDeBase
 		UtilisateursDAO utilDAO = new UtilisateursDAO();
 		
 		System.out.println("Affichage de deux exemplaires de livres par leur ID : ");
-		System.out.println( exDAO.findByKey(1) );
-		System.out.println( exDAO.findByKey(2) );
+		System.out.println( exDAO.findByKey(123) );
+		System.out.println( exDAO.findByKey(456) );
 	
 		
 		System.out.println("\nAffichage d'un adhérent par son ID aux DAO : ");
@@ -35,8 +35,8 @@ public class TestDeBase
 		System.out.println("\nCreation d'un emprunt en cours pour un adhérent");
 		System.out.println( utilDAO.findByKey(1) );
 		Utilisateur user = utilDAO.findByKey(1);
-		Exemplaire exemp = exDAO.findByKey(1);
-		EmpruntEnCours emprunt = new EmpruntEnCours ( new GregorianCalendar(2016,01,01), user, exemp );
+		Exemplaire exemp = exDAO.findByKey(123);
+		EmpruntEnCours emprunt = new EmpruntEnCours (  user, exemp, new GregorianCalendar(2016,01,01) );
 		System.out.println( "Nombre d'emprunts en cours : " + user.getNbEmpruntsEnCours() );
 		user.addEmpruntEnCours(emprunt);
 		System.out.println( "Nombre d'emprunts en cours : " + user.getNbEmpruntsEnCours() );
@@ -45,8 +45,8 @@ public class TestDeBase
 		System.out.println("\nCreation d'un emprunt en cours pour un employé");
 		System.out.println( utilDAO.findByKey(3) );
 		user = utilDAO.findByKey(3);
-		exemp = exDAO.findByKey(2);
-		emprunt = new EmpruntEnCours ( new GregorianCalendar(2016,01,01), user, exemp );
+		exemp = exDAO.findByKey(456);
+		emprunt = new EmpruntEnCours ( user, exemp, new GregorianCalendar(2016,01,01) );
 		System.out.println( "Nombre d'emprunts en cours : " + user.getNbEmpruntsEnCours() );
 		user.addEmpruntEnCours(emprunt);
 		System.out.println( "Nombre d'emprunts en cours : " + user.getNbEmpruntsEnCours() );
@@ -55,8 +55,8 @@ public class TestDeBase
 		System.out.println("\nImpossible d'emprunter pour un adhérent en retard");
 		System.out.println( utilDAO.findByKey(1) );
 		user = utilDAO.findByKey(1);
-		exemp = exDAO.findByKey(3);
-		emprunt = new EmpruntEnCours ( new GregorianCalendar(), user, exemp );
+		exemp = exDAO.findByKey(789);
+		emprunt = new EmpruntEnCours ( user, exemp, new GregorianCalendar() );
 		System.out.println( "Nombre d'emprunts en cours : " + user.getNbEmpruntsEnCours() );
 		user.addEmpruntEnCours(emprunt);
 		System.out.println( "Nombre d'emprunts en cours : " + user.getNbEmpruntsEnCours() );
@@ -65,8 +65,8 @@ public class TestDeBase
 		System.out.println("\nEmprunt possible pour un employé en retard");
 		System.out.println( utilDAO.findByKey(3) );
 		user = utilDAO.findByKey(3);
-		exemp = exDAO.findByKey(4);
-		emprunt = new EmpruntEnCours ( new GregorianCalendar(), user, exemp );
+		exemp = exDAO.findByKey(147);
+		emprunt = new EmpruntEnCours ( user, exemp, new GregorianCalendar()  );
 		System.out.println( "Nombre d'emprunts en cours : " + user.getNbEmpruntsEnCours() );
 		user.addEmpruntEnCours(emprunt);
 		System.out.println( "Nombre d'emprunts en cours : " + user.getNbEmpruntsEnCours() );
@@ -75,8 +75,8 @@ public class TestDeBase
 		System.out.println("\nEmprunt impossible sur un livre déjà emprunté");
 		System.out.println( utilDAO.findByKey(3) );
 		user = utilDAO.findByKey(3);
-		exemp = exDAO.findByKey(4);
-		emprunt = new EmpruntEnCours ( new GregorianCalendar(), user, exemp );
+		exemp = exDAO.findByKey(147);
+		emprunt = new EmpruntEnCours ( user, exemp, new GregorianCalendar()  );
 		System.out.println( "Nombre d'emprunts en cours : " + user.getNbEmpruntsEnCours() );
 		System.out.println("Statut exemplaire : " + exemp.getStatus());
 		user.addEmpruntEnCours(emprunt);

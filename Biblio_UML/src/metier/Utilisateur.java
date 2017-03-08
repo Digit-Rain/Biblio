@@ -53,7 +53,7 @@ public class Utilisateur extends Personne
 			emprunt = null ;
 			try 
 			{
-				throw new BiblioException("Emprunt du livre par cet adh�rent refus�");
+				throw new BiblioException("Emprunt du livre par cet adhérent refusé");
 			} catch (BiblioException e) { System.out.println(e); }
 		}
 		
@@ -63,6 +63,23 @@ public class Utilisateur extends Personne
 	@Override public String toString() 
 	{
 		return super.toString() + " ID Utilisateur=[" + idUtilisateur + "] Pseudonyme=[" + pseudonyme + "]";
+	}
+	
+	/** Retire un emprunt de la liste d'emprunt en cours de l'utilisateur
+	 * Crée un emprunt archive et l'ajoute à la liste EmpruntArchive de l'utilisateur */
+	public void removeEmpruntEnCours (EmpruntEnCours emprunt) {
+		EmpruntArchive ea = new EmpruntArchive(emprunt.getEmprunteur() , emprunt.getExemplaire(), new GregorianCalendar(), emprunt.getDateEmprunt());
+		empruntsEnCours.remove(emprunt);
+		emprunt.setDateRetour(new GregorianCalendar()); // Créer la date de retour à la date à laquelle le livre est restitué
+		if (emprunt.isPretEnRetard() == true){
+			emprunt.getEmprunteur().setNbRetards(emprunt.getEmprunteur().getNbRetards() + 1);
+		}
+	}
+	
+	/** Affiche la liste d'emprunts de l'emprunteur */
+	public void afficheEmpruntEnCours() {
+		for (EmpruntEnCours e : empruntsEnCours)
+			System.out.println(e.toString());
 	}
 	
 }

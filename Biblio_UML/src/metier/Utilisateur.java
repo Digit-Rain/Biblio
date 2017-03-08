@@ -4,14 +4,12 @@ import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-import dao.ExemplairesDAO;
-
 
 public class Utilisateur extends Personne
 {
 	
 	private int idUtilisateur = 0 ;
-	private String pwd = ""; 
+	private String pwd = "";
 	private String pseudonyme = "";
 	private List <EmpruntEnCours> empruntEnCours = new ArrayList <EmpruntEnCours> ();
 	
@@ -34,7 +32,7 @@ public class Utilisateur extends Personne
 	public void setIdUtilisateur (int idUtilisateur) {this.idUtilisateur = idUtilisateur;}
 	
 	
-	public boolean isConditionsPretAcceptees() {return true;}
+	public boolean isConditionPretAcceptees() {return true;}
 	
 	public int getNbRetards () { return 0; }
 	
@@ -44,17 +42,21 @@ public class Utilisateur extends Personne
 	
 	public void addEmpruntEnCours (EmpruntEnCours emprunt) 
 	{
-		ExemplairesDAO exDAO = new ExemplairesDAO () ;
-		int idEx = emprunt.getIdExemplaire();
-		
-		
-		if ( exDAO.findByKey(idEx).getStatus().equals(EnumStatusExemplaire.DISPONIBLE) && this.isConditionsPretAcceptees() )
+		if ( isConditionPretAcceptees() && emprunt.getExemplaire().getStatus() == EnumStatusExemplaire.DISPONIBLE )
 		{
-			empruntEnCours.add(emprunt); // Ajout dans l'arrayList portée par l'utilisateur
-			exDAO.findByKey(idEx).setStatus(EnumStatusExemplaire.PRETE);
+			this.empruntEnCours.add(emprunt);
+			emprunt.getExemplaire().setStatus(EnumStatusExemplaire.PRETE);
 		}
-			
-		else System.out.println("Désolé ce livre est déjà emprunté. Emprunt Impossible");
+		
+		else 
+		{
+			emprunt = null ;
+			try 
+			{
+				throw new BiblioException("Emprunt du livre par cet adhérent refusé");
+			} catch (BiblioException e) { System.out.println(e); }
+		}
+		
 	}
 	
 	
@@ -62,6 +64,5 @@ public class Utilisateur extends Personne
 	{
 		return super.toString() + " ID Utilisateur=[" + idUtilisateur + "] Pseudonyme=[" + pseudonyme + "]";
 	}
-	
 	
 }

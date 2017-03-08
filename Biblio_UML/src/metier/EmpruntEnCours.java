@@ -1,28 +1,46 @@
 package metier;
-//import java.util.Date;
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 
 public class EmpruntEnCours 
 {
 	private GregorianCalendar dateEmprunt = new GregorianCalendar(0,0,0);
-	private int idExemplaire = 0 ;
-	private int idUtilisateur = 0 ; 
+	private Utilisateur emprunteur ;
+	private Exemplaire exemplaire ;
 	
 	
 	public GregorianCalendar getDateEmprunt() {return dateEmprunt;}
-	public int getIdExemplaire() {return idExemplaire;}
-	public int getIdUtilisateur() {return idUtilisateur;}
+	public Utilisateur getUtilisateur() {return emprunteur;}
 	
-	
-	public void setIdExemplaire(int idExemplaire) {this.idExemplaire = idExemplaire;}
-	public void setIdUtilisateur(int idUtilisateur) {this.idUtilisateur = idUtilisateur;}
+	public Exemplaire getExemplaire(){return exemplaire;}
+	public void setExemplaire(Exemplaire exemplaire){this.exemplaire = exemplaire;}
+	public void setUtilisateur(Utilisateur emprunteur) {this.emprunteur = emprunteur;}
 	public void setDateEmprunt(GregorianCalendar dateEmprunt) {this.dateEmprunt = dateEmprunt;}
 
 	
 	public EmpruntEnCours () { this( new GregorianCalendar(), new Utilisateur(), new Exemplaire() ); }
 	
-	public EmpruntEnCours (Utilisateur utilisateur, Exemplaire exemplaire, GregorianCalendar gregorianCalendar) 
-	{ setDateEmprunt(gregorianCalendar); setIdUtilisateur(idUtilisateur); setIdExemplaire(idExemplaire);}
+	public EmpruntEnCours (GregorianCalendar dateEmprunt, Utilisateur utilisateur, Exemplaire exemplaire ) 
+	{ setDateEmprunt(dateEmprunt); setUtilisateur(utilisateur); setExemplaire(exemplaire);}
 
+	
+	public boolean isPretEnRetard ()
+	{
+		
+			// Calcul date actuelle moins durée max prêt
+			GregorianCalendar gc = new GregorianCalendar();
+			gc.set ( gc.get  ( GregorianCalendar.YEAR ),
+					 gc.get  ( GregorianCalendar.MONTH ),
+					 gc.get  ( GregorianCalendar.DAY_OF_MONTH ),
+					 0, 0, 0 );
+			
+			gc.add ( Calendar.DAY_OF_YEAR, -Adherent.getDureeMaxPrets() );
+			
+			
+			if ( this.getDateEmprunt().before(gc) ) return true;
+			else return false ;
+			
+	}
+		
 }

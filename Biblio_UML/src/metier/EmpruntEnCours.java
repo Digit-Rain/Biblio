@@ -6,12 +6,11 @@ import java.util.GregorianCalendar;
 
 public class EmpruntEnCours 
 {
-	private static SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy");
 	private GregorianCalendar dateEmprunt = new GregorianCalendar(0,0,0);
 	private Utilisateur emprunteur ;
 	private Exemplaire exemplaire ;
 	
-	
+	 
 	public GregorianCalendar getDateEmprunt() {return dateEmprunt;}
 	public Utilisateur getEmprunteur() {return emprunteur;}
 	
@@ -24,7 +23,7 @@ public class EmpruntEnCours
 	public EmpruntEnCours () { this( new Utilisateur(), new Exemplaire(), new GregorianCalendar() ); }
 	
 	public EmpruntEnCours (Utilisateur utilisateur, Exemplaire exemplaire, GregorianCalendar dateEmprunt  ) 
-	{ setDateEmprunt(dateEmprunt); setUtilisateur(utilisateur); setExemplaire(exemplaire);}
+	{ setDateEmprunt(dateEmprunt); setUtilisateur(utilisateur); setExemplaire(exemplaire); utilisateur.addEmpruntEnCours(this);}
 
 	
 	public boolean isPretEnRetard ()
@@ -40,15 +39,22 @@ public class EmpruntEnCours
 			gc.add ( Calendar.DAY_OF_YEAR, -Adherent.getDureeMaxPrets() );
 			
 			
-			if ( this.getDateEmprunt().before(gc) ) 	return true;
+			if ( this.getDateEmprunt().before(gc) ) return true;
 			else return false ;
 			
 	}
 	
+	
 	@Override
-	public String toString() {
+	public String toString() 
+	{
+		SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy");
+		
 		return "EmpruntEnCours [Date d'Emprunt = " + sdf.format(dateEmprunt.getTime()) + ", emprunteur = " 
 				+ emprunteur.getPseudonyme() + ", exemplaire = "+ exemplaire.getIdExemplaire() + "]\n";
 	}
-		
+	
+	
+	
+	
 }

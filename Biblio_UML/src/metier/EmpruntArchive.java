@@ -16,7 +16,7 @@ public class EmpruntArchive {
 	private GregorianCalendar dateEmprunt;
 	private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 	private static List<EmpruntArchive> archives = new ArrayList <EmpruntArchive> ();
-	
+	 
 	public EmpruntArchive (Utilisateur lemprunteur, Exemplaire lexemplaire, GregorianCalendar laDateRestitutionEff, GregorianCalendar laDateEmprunt) {
 		this.setEmprunteur(lemprunteur);
 		this.setExemplaire(lexemplaire);

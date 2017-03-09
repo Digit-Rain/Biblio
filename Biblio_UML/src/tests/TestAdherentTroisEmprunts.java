@@ -11,7 +11,7 @@ import metier.Utilisateur;
 public class TestAdherentTroisEmprunts {
 	
 	public static void main(String[]args) throws BiblioException {
-
+		// Création des objets nécessaires
 		ExemplairesDAO exDAO = new ExemplairesDAO();
 		UtilisateursDAO userDAO = new UtilisateursDAO();
 		Utilisateur ad1 = userDAO.findByKey(01); 
@@ -21,12 +21,7 @@ public class TestAdherentTroisEmprunts {
 		EmpruntEnCours ep2 = new EmpruntEnCours(ad1, exDAO.findByKey(456), new GregorianCalendar());
 		EmpruntEnCours ep3 = new EmpruntEnCours(ad1, exDAO.findByKey(789), new GregorianCalendar());
 		EmpruntEnCours ep4 = new EmpruntEnCours(ad1, exDAO.findByKey(147), new GregorianCalendar());
-		ad1.addEmpruntEnCours(ep1);
-		ad1.addEmpruntEnCours(ep2);
-		ad1.addEmpruntEnCours(ep3);
-		ad1.addEmpruntEnCours(ep4);
 		System.out.println(ad1.getEmpruntEnCours());
-		
 	}
  
 }

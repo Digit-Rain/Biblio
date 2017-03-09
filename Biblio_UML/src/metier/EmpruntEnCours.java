@@ -6,7 +6,6 @@ import java.util.GregorianCalendar;
 
 public class EmpruntEnCours 
 {
-	private static SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy");
 	private GregorianCalendar dateEmprunt = new GregorianCalendar(0,0,0);
 	private Utilisateur emprunteur ;
 	private Exemplaire exemplaire ;
@@ -40,11 +39,12 @@ public class EmpruntEnCours
 			gc.add ( Calendar.DAY_OF_YEAR, -Adherent.getDureeMaxPrets() );
 			
 			
-			if ( this.getDateEmprunt().before(gc) ) 	return true;
+			if ( this.getDateEmprunt().before(gc) ) return true;
 			else return false ;
 			
 	}
 	
+<<<<<<< HEAD
 <<<<<<< HEAD
 	
 	@Override
@@ -52,16 +52,25 @@ public class EmpruntEnCours
 	{
 		SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy");
 =======
+=======
+	
+>>>>>>> branch 'master' of https://github.com/Digit-Rain/Biblio.git
 	@Override
-	public String toString() {
+	public String toString() 
+	{
+		SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy");
+		
 		return "EmpruntEnCours [Date d'Emprunt = " + sdf.format(dateEmprunt.getTime()) + ", emprunteur = " 
 				+ emprunteur.getPseudonyme() + ", exemplaire = "+ exemplaire.getIdExemplaire() + "]\n";
 	}
+<<<<<<< HEAD
 >>>>>>> branch 'master' of https://github.com/Digit-Rain/Biblio.git
 		
 		return "EmpruntEnCours [Date d'Emprunt = " + sdf.format(dateEmprunt.getTime()) + ", emprunteur = " 
 				+ emprunteur.getPseudonyme() + ", exemplaire = "+ exemplaire.getIdExemplaire() + "]\n";
 	}
+=======
+>>>>>>> branch 'master' of https://github.com/Digit-Rain/Biblio.git
 	
 	
 	

@@ -22,6 +22,7 @@ public class TestAdherentEnRetard
 
 		EmpruntEnCours ep1 = new EmpruntEnCours(ad1, exDAO.findByKey(258), new GregorianCalendar(2017,1,20));
 <<<<<<< HEAD
+<<<<<<< HEAD
 		//ad1.addEmpruntEnCours(ep1);
 		System.out.println("\nListe d'emprunt de l'adhérent :\n" ) ;
 		ad1.afficheEmpruntEnCours() ;
@@ -33,8 +34,14 @@ public class TestAdherentEnRetard
 		
 		ad1.removeEmpruntEnCours(ep1);
 >>>>>>> branch 'master' of https://github.com/Digit-Rain/Biblio.git
+=======
+		//ad1.addEmpruntEnCours(ep1);
+		System.out.println("\nListe d'emprunt de l'adhérent :\n" ) ;
+		ad1.afficheEmpruntEnCours() ;
+>>>>>>> branch 'master' of https://github.com/Digit-Rain/Biblio.git
 		
 		System.out.println("La méthode isPretEnRetard renvoie true et le nbRetard de l'adhérent augmente de 1 => "+ ad1.getNbRetards());
+<<<<<<< HEAD
 <<<<<<< HEAD
 		System.out.println("Emprunt en cours de ad1 :");
 		ad1.afficheEmpruntEnCours();
@@ -48,8 +55,22 @@ public class TestAdherentEnRetard
 		ad1.afficheEmpruntEnCours();
 =======
 		System.out.println("\nOn essaie de faire un autre emprunt pour l'adhérent :\n=> Lève une BiblioException : ");
+=======
+		System.out.println("Emprunt en cours de ad1 :");
+		ad1.afficheEmpruntEnCours();
+		System.out.println("Retrait de l'emprunt ce qui enclenche la méthode isPretEnRetard.");
+		//ad1.removeEmpruntEnCours(ep1);
+		
+		
+		System.out.println("\nOn essaie de faire un autre emprunt (n°369) pour l'adhérent :\n=> Lève une BiblioException : ");
+>>>>>>> branch 'master' of https://github.com/Digit-Rain/Biblio.git
 		EmpruntEnCours ep2 = new EmpruntEnCours(ad1, exDAO.findByKey(369), new GregorianCalendar());
+<<<<<<< HEAD
 		ad1.addEmpruntEnCours(ep2);
+>>>>>>> branch 'master' of https://github.com/Digit-Rain/Biblio.git
+=======
+		System.out.println("Emprunt en cours de ad1 :");
+		ad1.afficheEmpruntEnCours();
 >>>>>>> branch 'master' of https://github.com/Digit-Rain/Biblio.git
 	}
 

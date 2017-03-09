@@ -12,9 +12,13 @@ public class Utilisateur extends Personne
 	private String pwd = "";
 	private String pseudonyme = "";
 <<<<<<< HEAD
+<<<<<<< HEAD
 	//private int nbRetards = 0 ;
 =======
 	protected int nbRetards;
+>>>>>>> branch 'master' of https://github.com/Digit-Rain/Biblio.git
+=======
+	//private int nbRetards = 0 ;
 >>>>>>> branch 'master' of https://github.com/Digit-Rain/Biblio.git
 	private List <EmpruntEnCours> empruntEnCours = new ArrayList <EmpruntEnCours> ();
 	
@@ -78,11 +82,12 @@ public class Utilisateur extends Personne
 	public void removeEmpruntEnCours (EmpruntEnCours emprunt) 
 	{
 		EmpruntArchive ea = new EmpruntArchive(emprunt.getEmprunteur() , emprunt.getExemplaire(), new GregorianCalendar(), emprunt.getDateEmprunt());
-		emprunt.getEmprunteur().getEmpruntEnCours().remove(emprunt);
+		this.getEmpruntEnCours().remove(emprunt);
 	//	emprunt.setDateRetour(new GregorianCalendar()); // Créer la date de retour à la date à laquelle le livre est restitué
 		/*if (emprunt.isPretEnRetard() == true)
 		{
 			System.out.println("Passe dans le if de remove");
+<<<<<<< HEAD
 <<<<<<< HEAD
 			*/
 			
@@ -95,6 +100,15 @@ public class Utilisateur extends Personne
 			emprunt.getEmprunteur().setNbRetards(emprunt.getEmprunteur().getNbRetards() + 1);
 		}
 >>>>>>> branch 'master' of https://github.com/Digit-Rain/Biblio.git
+=======
+			*/
+			
+			
+			
+			//this.setNbRetards(nbRetards++);
+			//emprunt.getEmprunteur().setNbRetards(emprunt.getEmprunteur().getNbRetards() + 1);
+		//}
+>>>>>>> branch 'master' of https://github.com/Digit-Rain/Biblio.git
 	}
 	
 	/** Affiche la liste d'emprunts de l'emprunteur */
@@ -102,12 +116,6 @@ public class Utilisateur extends Personne
 	{
 		for (EmpruntEnCours e : empruntEnCours)
 			System.out.println(e.toString());
-	}
-	
-	public static void main(String[]args) throws BiblioException {
-		Utilisateur ad = new Adherent();
-		ad.setNbRetards(1);
-		System.out.println(ad.getNbRetards());
 	}
 	
 }

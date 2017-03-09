@@ -45,6 +45,7 @@ public class Adherent extends Utilisateur {
 	}
 
 	
+	@ Override
 	public boolean isConditionsPretAcceptees() 
 	{
 		
@@ -66,7 +67,7 @@ public class Adherent extends Utilisateur {
 		{
 			try {
 				throw new BiblioException("Désolé vous avez trop de retards pour pouvoir emprunter");
-			} catch (BiblioException e) {System.out.println(e); }	
+			} catch (BiblioException e) {System.err.println(e); }	
 		}
 		return nbRetards; 
 	}
@@ -101,7 +102,8 @@ public class Adherent extends Utilisateur {
 	}*/
 	
 	@Override
-	public String toString() {
+	public String toString() 
+	{
 		return "Adherent [N° ID = "+ super.getIdUtilisateur() +", Nom = "+ super.getNom() +", Prénom = "+ super.getPrenom() +", Nombre d'emprunt en cours = "
 				+ super.getNbEmpruntsEnCours() +", Retard = "+ super.getNbRetards() +", N° telephone = " + telephone + "]";
 	}

@@ -20,9 +20,6 @@ public class TestRetour {
 		EmpruntEnCours ep1 = new EmpruntEnCours(em1, exDAO.findByKey(123), new GregorianCalendar());
 		EmpruntEnCours ep2 = new EmpruntEnCours(em1, ex, new GregorianCalendar());
 		EmpruntEnCours ep3 = new EmpruntEnCours(em1, exDAO.findByKey(789), new GregorianCalendar());
-		em1.addEmpruntEnCours(ep1);
-		em1.addEmpruntEnCours(ep2);
-		em1.addEmpruntEnCours(ep3);
 		System.out.println("\n\n1.6 TEST RETOUR\nOn rend un exemplaire.");
 		System.out.println("\nCollection d'EmpruntEnCours de l'utilisateur avant restitution : ");
 		em1.afficheEmpruntEnCours();

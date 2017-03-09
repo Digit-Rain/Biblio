@@ -1,6 +1,5 @@
 package tests;
 
-import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 import dao.ExemplairesDAO;
@@ -18,17 +17,19 @@ public class TestEmployeEnRetard {
 		Utilisateur em1 = userDAO.findByKey(03);
 		
 		System.out.println("1.3 TEST EMPLOYE EN RETARD\nSi un emprunt en retard, emprunt possible pour un employé :");
-		
+		System.out.println("On ajoute un emprunt en retard ID n°258 : ");
 		EmpruntEnCours ep1 = new EmpruntEnCours(em1, exDAO.findByKey(258), new GregorianCalendar(2017,1,20));
 		
 		System.out.println("\nListe d'emprunt de employé :\n"+ em1.getEmpruntEnCours());
 		
-		System.out.println("Retrait de l'emprunt ce qui enclenche la méthode isPretEnRetard.");
-		em1.removeEmpruntEnCours(ep1);
+		//System.out.println("Retrait de l'emprunt ce qui enclenche la méthode isPretEnRetard.");
 		
-		System.out.println("La méthode isPretEnRetard renvoie true et le nbRetard de l'employé augmente de 1 => "+ em1.getNbRetards());
+		//em1.removeEmpruntEnCours(ep1);
+		
+		//System.out.println("La méthode isPretEnRetard renvoie true et le nbRetard de l'employé augmente de 1 => "+ em1.getNbRetards());
 		System.out.println("\nOn essaie de faire un autre emprunt pour l'employé :\n=> Pas de BiblioException levée : ");
 		EmpruntEnCours ep2 = new EmpruntEnCours(em1, exDAO.findByKey(369), new GregorianCalendar());
+		em1.afficheEmpruntEnCours();
 	}
 
 

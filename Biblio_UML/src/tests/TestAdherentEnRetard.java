@@ -8,9 +8,11 @@ import metier.BiblioException;
 import metier.EmpruntEnCours;
 import metier.Utilisateur;
 
-public class TestAdherentEnRetard {
+public class TestAdherentEnRetard 
+{
 	
-	public static void main(String[]args) throws BiblioException {
+	public static void main(String[]args) throws BiblioException 
+	{
 		// Création des objets nécessaires
 		ExemplairesDAO exDAO = new ExemplairesDAO();
 		UtilisateursDAO userDAO = new UtilisateursDAO();
@@ -19,16 +21,21 @@ public class TestAdherentEnRetard {
 		System.out.println("\n\n1.2 TEST ADHERENT EN RETARD\nSi un emprunt en retard, impossible d'emprunter pour un adhérent :");
 
 		EmpruntEnCours ep1 = new EmpruntEnCours(ad1, exDAO.findByKey(258), new GregorianCalendar(2017,1,20));
-		ad1.addEmpruntEnCours(ep1);
-		System.out.println("\nListe d'emprunt de l'adhérent :\n"+ ad1.getEmpruntEnCours());
-		
-		System.out.println("Retrait de l'emprunt ce qui enclenche la méthode isPretEnRetard.");
-		ad1.removeEmpruntEnCours(ep1);
+		//ad1.addEmpruntEnCours(ep1);
+		System.out.println("\nListe d'emprunt de l'adhérent :\n" ) ;
+		ad1.afficheEmpruntEnCours() ;
 		
 		System.out.println("La méthode isPretEnRetard renvoie true et le nbRetard de l'adhérent augmente de 1 => "+ ad1.getNbRetards());
-		System.out.println("\nOn essaie de faire un autre emprunt pour l'adhérent :\n=> Lève une BiblioException : ");
-		EmpruntEnCours ep2 = new EmpruntEnCours(ad1, exDAO.findByKey(369), new GregorianCalendar());
+		System.out.println("Emprunt en cours de ad1 :");
+		ad1.afficheEmpruntEnCours();
+		System.out.println("Retrait de l'emprunt ce qui enclenche la méthode isPretEnRetard.");
+		//ad1.removeEmpruntEnCours(ep1);
 		
+		
+		System.out.println("\nOn essaie de faire un autre emprunt (n°369) pour l'adhérent :\n=> Lève une BiblioException : ");
+		EmpruntEnCours ep2 = new EmpruntEnCours(ad1, exDAO.findByKey(369), new GregorianCalendar());
+		System.out.println("Emprunt en cours de ad1 :");
+		ad1.afficheEmpruntEnCours();
 	}
 
 }

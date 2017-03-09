@@ -1,4 +1,5 @@
 package metier;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -22,7 +23,7 @@ public class EmpruntEnCours
 	public EmpruntEnCours () { this( new Utilisateur(), new Exemplaire(), new GregorianCalendar() ); }
 	
 	public EmpruntEnCours (Utilisateur utilisateur, Exemplaire exemplaire, GregorianCalendar dateEmprunt  ) 
-	{ setDateEmprunt(dateEmprunt); setUtilisateur(utilisateur); setExemplaire(exemplaire);}
+	{ setDateEmprunt(dateEmprunt); setUtilisateur(utilisateur); setExemplaire(exemplaire); utilisateur.addEmpruntEnCours(this);}
 
 	
 	public boolean isPretEnRetard ()
@@ -42,5 +43,18 @@ public class EmpruntEnCours
 			else return false ;
 			
 	}
+	
+	
+	@Override
+	public String toString() 
+	{
+		SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy");
 		
+		return "EmpruntEnCours [Date d'Emprunt = " + sdf.format(dateEmprunt.getTime()) + ", emprunteur = " 
+				+ emprunteur.getPseudonyme() + ", exemplaire = "+ exemplaire.getIdExemplaire() + "]\n";
+	}
+	
+	
+	
+	
 }

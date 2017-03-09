@@ -48,12 +48,12 @@ public class TestDeBase {
 			/////////////////////////////////////////////////////////////
 			System.out.println("\nCréation d'un emprunt en cours pour un adhérent :");
 			EmpruntEnCours ep1 = new EmpruntEnCours(ad1, ex1, new GregorianCalendar());
-			ad1.addEmpruntEnCours(ep1);
+		//	ad1.addEmpruntEnCours(ep1);
 			ad1.afficheEmpruntEnCours();
 			
 			System.out.println("\nCréation d'un emprunt en cours pour un employé :");
 			EmpruntEnCours ep2 = new EmpruntEnCours(em1, ex2, new GregorianCalendar());
-			em1.addEmpruntEnCours(ep2);
+		//	em1.addEmpruntEnCours(ep2);
 			em1.afficheEmpruntEnCours();
 			
 

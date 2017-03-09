@@ -1,13 +1,11 @@
-package dao;
+ppackage dao;
 
-import java.awt.TrayIcon.MessageType;
+
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
-import javax.swing.JOptionPane;
 
 import metier.BiblioException;
-import metier.EmpruntEnCours;
 import metier.EnumStatusExemplaire;
 import metier.Exemplaire;
 

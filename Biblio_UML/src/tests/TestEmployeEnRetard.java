@@ -27,11 +27,7 @@ public class TestEmployeEnRetard {
 		//em1.removeEmpruntEnCours(ep1);
 		
 		//System.out.println("La méthode isPretEnRetard renvoie true et le nbRetard de l'employé augmente de 1 => "+ em1.getNbRetards());
-<<<<<<< HEAD
 		System.out.println("\nOn essaie de faire un autre emprunt pour l'employé :\n=> Pas de BiblioException levée : ");
-=======
-		System.out.println("\nOn essaie de faire un autre emprunt (ID n°369) pour l'employé :\n=> Pas de BiblioException levée : ");
->>>>>>> branch 'master' of https://github.com/Digit-Rain/Biblio.git
 		EmpruntEnCours ep2 = new EmpruntEnCours(em1, exDAO.findByKey(369), new GregorianCalendar());
 		em1.afficheEmpruntEnCours();
 	}

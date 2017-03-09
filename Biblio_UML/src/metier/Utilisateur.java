@@ -1,4 +1,4 @@
-package metier;
+ppackage metier;
 
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
@@ -11,15 +11,7 @@ public class Utilisateur extends Personne
 	private int idUtilisateur = 0 ;
 	private String pwd = "";
 	private String pseudonyme = "";
-<<<<<<< HEAD
-<<<<<<< HEAD
 	//private int nbRetards = 0 ;
-=======
-	protected int nbRetards;
->>>>>>> branch 'master' of https://github.com/Digit-Rain/Biblio.git
-=======
-	//private int nbRetards = 0 ;
->>>>>>> branch 'master' of https://github.com/Digit-Rain/Biblio.git
 	private List <EmpruntEnCours> empruntEnCours = new ArrayList <EmpruntEnCours> ();
 	
 
@@ -87,8 +79,6 @@ public class Utilisateur extends Personne
 		/*if (emprunt.isPretEnRetard() == true)
 		{
 			System.out.println("Passe dans le if de remove");
-<<<<<<< HEAD
-<<<<<<< HEAD
 			*/
 			
 			
@@ -96,19 +86,6 @@ public class Utilisateur extends Personne
 			//this.setNbRetards(nbRetards++);
 			//emprunt.getEmprunteur().setNbRetards(emprunt.getEmprunteur().getNbRetards() + 1);
 		//}
-=======
-			emprunt.getEmprunteur().setNbRetards(emprunt.getEmprunteur().getNbRetards() + 1);
-		}
->>>>>>> branch 'master' of https://github.com/Digit-Rain/Biblio.git
-=======
-			*/
-			
-			
-			
-			//this.setNbRetards(nbRetards++);
-			//emprunt.getEmprunteur().setNbRetards(emprunt.getEmprunteur().getNbRetards() + 1);
-		//}
->>>>>>> branch 'master' of https://github.com/Digit-Rain/Biblio.git
 	}
 	
 	/** Affiche la liste d'emprunts de l'emprunteur */

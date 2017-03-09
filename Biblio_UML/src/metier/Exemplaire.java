@@ -2,7 +2,7 @@ package metier;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
+ 
 
 public class Exemplaire {
 	private int idExemplaire;

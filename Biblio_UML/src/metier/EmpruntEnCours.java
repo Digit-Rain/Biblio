@@ -44,17 +44,7 @@ public class EmpruntEnCours
 			
 	}
 	
-<<<<<<< HEAD
-<<<<<<< HEAD
 	
-	@Override
-	public String toString() 
-	{
-		SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy");
-=======
-=======
-	
->>>>>>> branch 'master' of https://github.com/Digit-Rain/Biblio.git
 	@Override
 	public String toString() 
 	{
@@ -63,14 +53,6 @@ public class EmpruntEnCours
 		return "EmpruntEnCours [Date d'Emprunt = " + sdf.format(dateEmprunt.getTime()) + ", emprunteur = " 
 				+ emprunteur.getPseudonyme() + ", exemplaire = "+ exemplaire.getIdExemplaire() + "]\n";
 	}
-<<<<<<< HEAD
->>>>>>> branch 'master' of https://github.com/Digit-Rain/Biblio.git
-		
-		return "EmpruntEnCours [Date d'Emprunt = " + sdf.format(dateEmprunt.getTime()) + ", emprunteur = " 
-				+ emprunteur.getPseudonyme() + ", exemplaire = "+ exemplaire.getIdExemplaire() + "]\n";
-	}
-=======
->>>>>>> branch 'master' of https://github.com/Digit-Rain/Biblio.git
 	
 	
 	

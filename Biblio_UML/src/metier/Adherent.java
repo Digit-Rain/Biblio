@@ -45,17 +45,8 @@ public class Adherent extends Utilisateur {
 	}
 
 	
-<<<<<<< HEAD
-<<<<<<< HEAD
 	@ Override
 	public boolean isConditionsPretAcceptees() 
-=======
-	/*public boolean isConditionsPretAcceptees() 
->>>>>>> branch 'master' of https://github.com/Digit-Rain/Biblio.git
-=======
-	@ Override
-	public boolean isConditionsPretAcceptees() 
->>>>>>> branch 'master' of https://github.com/Digit-Rain/Biblio.git
 	{
 		
 		if ( getNbRetards() > 0 || getNbEmpruntsEnCours() >= nbMaxPrets ) return false ;
@@ -76,21 +67,9 @@ public class Adherent extends Utilisateur {
 		{
 			try {
 				throw new BiblioException("Désolé vous avez trop de retards pour pouvoir emprunter");
-<<<<<<< HEAD
-<<<<<<< HEAD
 			} catch (BiblioException e) {System.err.println(e); }	
 		}
 		return nbRetards; 
-=======
-			} catch (BiblioException e) {System.out.println(e); }	
-		}*/
-		return this.nbRetards; 
->>>>>>> branch 'master' of https://github.com/Digit-Rain/Biblio.git
-=======
-			} catch (BiblioException e) {System.err.println(e); }	
-		}
-		return nbRetards; 
->>>>>>> branch 'master' of https://github.com/Digit-Rain/Biblio.git
 	}
 
 	

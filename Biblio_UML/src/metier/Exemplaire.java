@@ -11,7 +11,6 @@ public class Exemplaire {
 	private metier.EnumStatusExemplaire status;
 	private String isbn = "isbn inconnu";
 	
-	
 	public Exemplaire(int idExemplaire, Date dateAchat, EnumStatusExemplaire status, String isbn) {
 		this.setIdExemplaire(idExemplaire);
 		this.setDateAchat(dateAchat);

@@ -11,7 +11,7 @@ public class BiblioException extends Exception {
 		System.err.println("Une BiblioException est survenue !");
 	}
 	
-	
+	 
 	public BiblioException(String message) {
 		super(message);
 	}

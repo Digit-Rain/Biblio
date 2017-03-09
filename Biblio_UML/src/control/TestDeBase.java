@@ -12,7 +12,7 @@ import metier.Utilisateur;
 
 public class TestDeBase 
 {
-
+  
 	
 	public static void main(String[] args) 
 	{
@@ -38,7 +38,8 @@ public class TestDeBase
 		Exemplaire exemp = exDAO.findByKey(123);
 		EmpruntEnCours emprunt = new EmpruntEnCours (  user, exemp, new GregorianCalendar(2016,01,01) );
 		System.out.println( "Nombre d'emprunts en cours : " + user.getNbEmpruntsEnCours() );
-		user.addEmpruntEnCours(emprunt);
+		user.afficheEmpruntEnCours();
+		//user.addEmpruntEnCours(emprunt);
 		System.out.println( "Nombre d'emprunts en cours : " + user.getNbEmpruntsEnCours() );
 				
 		
@@ -48,7 +49,8 @@ public class TestDeBase
 		exemp = exDAO.findByKey(456);
 		emprunt = new EmpruntEnCours ( user, exemp, new GregorianCalendar(2016,01,01) );
 		System.out.println( "Nombre d'emprunts en cours : " + user.getNbEmpruntsEnCours() );
-		user.addEmpruntEnCours(emprunt);
+		user.afficheEmpruntEnCours();
+		//user.addEmpruntEnCours(emprunt);
 		System.out.println( "Nombre d'emprunts en cours : " + user.getNbEmpruntsEnCours() );
 		
 		
@@ -58,7 +60,8 @@ public class TestDeBase
 		exemp = exDAO.findByKey(789);
 		emprunt = new EmpruntEnCours ( user, exemp, new GregorianCalendar() );
 		System.out.println( "Nombre d'emprunts en cours : " + user.getNbEmpruntsEnCours() );
-		user.addEmpruntEnCours(emprunt);
+		user.afficheEmpruntEnCours();
+		//user.addEmpruntEnCours(emprunt);
 		System.out.println( "Nombre d'emprunts en cours : " + user.getNbEmpruntsEnCours() );
 		
 		
@@ -66,10 +69,12 @@ public class TestDeBase
 		System.out.println( utilDAO.findByKey(3) );
 		user = utilDAO.findByKey(3);
 		exemp = exDAO.findByKey(147);
+		System.out.println( "Nombre d'emprunts en cours : " + user.getNbEmpruntsEnCours() );
 		emprunt = new EmpruntEnCours ( user, exemp, new GregorianCalendar()  );
 		System.out.println( "Nombre d'emprunts en cours : " + user.getNbEmpruntsEnCours() );
-		user.addEmpruntEnCours(emprunt);
-		System.out.println( "Nombre d'emprunts en cours : " + user.getNbEmpruntsEnCours() );
+		user.afficheEmpruntEnCours();
+		//user.addEmpruntEnCours(emprunt);
+		
 		
 		
 		System.out.println("\nEmprunt impossible sur un livre déjà emprunté");
@@ -79,7 +84,8 @@ public class TestDeBase
 		emprunt = new EmpruntEnCours ( user, exemp, new GregorianCalendar()  );
 		System.out.println( "Nombre d'emprunts en cours : " + user.getNbEmpruntsEnCours() );
 		System.out.println("Statut exemplaire : " + exemp.getStatus());
-		user.addEmpruntEnCours(emprunt);
+		user.afficheEmpruntEnCours();
+		//user.addEmpruntEnCours(emprunt);
 		System.out.println( "Nombre d'emprunts en cours : " + user.getNbEmpruntsEnCours() );
 		
 		

@@ -1,4 +1,4 @@
-ppackage metier;
+package metier;
 
 import java.util.ArrayList;
 import java.util.GregorianCalendar;

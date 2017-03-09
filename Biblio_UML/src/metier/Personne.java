@@ -14,7 +14,7 @@ public class Personne
 	private String sexe = "Non renseigné"; 
 	
 	
-	
+	 
 	public Personne () { }
 	
 	public Personne ( String nom, String prenom, GregorianCalendar dateNaissance, String sexe) 

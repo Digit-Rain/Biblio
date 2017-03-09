@@ -11,7 +11,7 @@ public class EmpruntEnCours
 	private Utilisateur emprunteur ;
 	private Exemplaire exemplaire ;
 	
-	
+	 
 	public GregorianCalendar getDateEmprunt() {return dateEmprunt;}
 	public Utilisateur getEmprunteur() {return emprunteur;}
 	
@@ -24,7 +24,7 @@ public class EmpruntEnCours
 	public EmpruntEnCours () { this( new Utilisateur(), new Exemplaire(), new GregorianCalendar() ); }
 	
 	public EmpruntEnCours (Utilisateur utilisateur, Exemplaire exemplaire, GregorianCalendar dateEmprunt  ) 
-	{ setDateEmprunt(dateEmprunt); setUtilisateur(utilisateur); setExemplaire(exemplaire);}
+	{ setDateEmprunt(dateEmprunt); setUtilisateur(utilisateur); setExemplaire(exemplaire); utilisateur.addEmpruntEnCours(this);}
 
 	
 	public boolean isPretEnRetard ()
@@ -45,10 +45,25 @@ public class EmpruntEnCours
 			
 	}
 	
+<<<<<<< HEAD
+	
+	@Override
+	public String toString() 
+	{
+		SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy");
+=======
 	@Override
 	public String toString() {
 		return "EmpruntEnCours [Date d'Emprunt = " + sdf.format(dateEmprunt.getTime()) + ", emprunteur = " 
 				+ emprunteur.getPseudonyme() + ", exemplaire = "+ exemplaire.getIdExemplaire() + "]\n";
 	}
+>>>>>>> branch 'master' of https://github.com/Digit-Rain/Biblio.git
 		
+		return "EmpruntEnCours [Date d'Emprunt = " + sdf.format(dateEmprunt.getTime()) + ", emprunteur = " 
+				+ emprunteur.getPseudonyme() + ", exemplaire = "+ exemplaire.getIdExemplaire() + "]\n";
+	}
+	
+	
+	
+	
 }

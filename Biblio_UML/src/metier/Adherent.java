@@ -10,7 +10,7 @@ public class Adherent extends Utilisateur {
 	
 	public Adherent () {};
 	
-	
+	 
 	public Adherent (String nom, String prenom, GregorianCalendar dateNaissance, String sexe, 
 			String pwd, String pseudonyme, int idUtilisateur, String telephone) {
 		super(nom, prenom, dateNaissance, sexe, pwd, pseudonyme, idUtilisateur);
@@ -45,7 +45,12 @@ public class Adherent extends Utilisateur {
 	}
 
 	
+<<<<<<< HEAD
+	@ Override
+	public boolean isConditionsPretAcceptees() 
+=======
 	/*public boolean isConditionsPretAcceptees() 
+>>>>>>> branch 'master' of https://github.com/Digit-Rain/Biblio.git
 	{
 		
 		if ( getNbRetards() > 0 || getNbEmpruntsEnCours() >= nbMaxPrets ) return false ;
@@ -66,9 +71,15 @@ public class Adherent extends Utilisateur {
 		{
 			try {
 				throw new BiblioException("Désolé vous avez trop de retards pour pouvoir emprunter");
+<<<<<<< HEAD
+			} catch (BiblioException e) {System.err.println(e); }	
+		}
+		return nbRetards; 
+=======
 			} catch (BiblioException e) {System.out.println(e); }	
 		}*/
 		return this.nbRetards; 
+>>>>>>> branch 'master' of https://github.com/Digit-Rain/Biblio.git
 	}
 
 	
@@ -98,7 +109,8 @@ public class Adherent extends Utilisateur {
 	}
 	
 	@Override
-	public String toString() {
+	public String toString() 
+	{
 		return "Adherent [N° ID = "+ super.getIdUtilisateur() +", Nom = "+ super.getNom() +", Prénom = "+ super.getPrenom() +", Nombre d'emprunt en cours = "
 				+ super.getNbEmpruntsEnCours() +", Retard = "+ super.getNbRetards() +", N° telephone = " + telephone + "]";
 	}

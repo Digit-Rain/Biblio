@@ -28,5 +28,5 @@ public class TestAdherentTroisEmprunts {
 		System.out.println(ad1.getEmpruntEnCours());
 		
 	}
-
+ 
 }

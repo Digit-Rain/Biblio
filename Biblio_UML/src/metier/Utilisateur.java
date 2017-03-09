@@ -11,13 +11,17 @@ public class Utilisateur extends Personne
 	private int idUtilisateur = 0 ;
 	private String pwd = "";
 	private String pseudonyme = "";
+<<<<<<< HEAD
+	//private int nbRetards = 0 ;
+=======
 	protected int nbRetards;
+>>>>>>> branch 'master' of https://github.com/Digit-Rain/Biblio.git
 	private List <EmpruntEnCours> empruntEnCours = new ArrayList <EmpruntEnCours> ();
 	
 
-	public void setNbRetards(int nbRetards) {this.nbRetards = nbRetards;}
+	//public void setNbRetards(int nbRetards) {this.nbRetards = nbRetards;}
 	
-	
+	 
 	public Utilisateur () { this( "", "", new GregorianCalendar(0,0,0), "", "", "", 0 ); }
 	
 	public Utilisateur (String nom, String prenom, GregorianCalendar dateNaissance, String sexe, 
@@ -71,18 +75,31 @@ public class Utilisateur extends Personne
 	
 	/** Retire un emprunt de la liste d'emprunt en cours de l'utilisateur
 	 * Crée un emprunt archive et l'ajoute à la liste EmpruntArchive de l'utilisateur */
-	public void removeEmpruntEnCours (EmpruntEnCours emprunt) {
+	public void removeEmpruntEnCours (EmpruntEnCours emprunt) 
+	{
 		EmpruntArchive ea = new EmpruntArchive(emprunt.getEmprunteur() , emprunt.getExemplaire(), new GregorianCalendar(), emprunt.getDateEmprunt());
 		emprunt.getEmprunteur().getEmpruntEnCours().remove(emprunt);
 	//	emprunt.setDateRetour(new GregorianCalendar()); // Créer la date de retour à la date à laquelle le livre est restitué
-		if (emprunt.isPretEnRetard() == true){
+		/*if (emprunt.isPretEnRetard() == true)
+		{
 			System.out.println("Passe dans le if de remove");
+<<<<<<< HEAD
+			*/
+			
+			
+			
+			//this.setNbRetards(nbRetards++);
+			//emprunt.getEmprunteur().setNbRetards(emprunt.getEmprunteur().getNbRetards() + 1);
+		//}
+=======
 			emprunt.getEmprunteur().setNbRetards(emprunt.getEmprunteur().getNbRetards() + 1);
 		}
+>>>>>>> branch 'master' of https://github.com/Digit-Rain/Biblio.git
 	}
 	
 	/** Affiche la liste d'emprunts de l'emprunteur */
-	public void afficheEmpruntEnCours() {
+	public void afficheEmpruntEnCours() 
+	{
 		for (EmpruntEnCours e : empruntEnCours)
 			System.out.println(e.toString());
 	}
